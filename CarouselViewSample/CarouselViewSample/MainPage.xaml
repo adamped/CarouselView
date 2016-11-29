@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CarouselViewSample"
+             xmlns:control="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             x:Class="CarouselViewSample.MainPage"
+             BackgroundColor="Black">
+
+  <ContentView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+    <StackLayout>
+      <control:CarouselView ItemsSource="{Binding MyDataSource}" Position="{Binding Position, Mode=TwoWay}">
+        <control:CarouselView.ItemTemplate>
+          <DataTemplate>
+            <Label Text="{Binding Name}" TextColor="White" />
+          </DataTemplate>
+        </control:CarouselView.ItemTemplate>
+      </control:CarouselView>
+      <local:CarouselIndicators IndicatorHeight="16" IndicatorWidth="16" UnselectedIndicator="unselected_circle.png" SelectedIndicator="selected_circle.png" Position="{Binding Position}" ItemsSource="{Binding MyDataSource}" />
+    </StackLayout>
+    
+  </ContentView>
+
+</ContentPage>
