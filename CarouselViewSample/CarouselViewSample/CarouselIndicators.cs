@@ -11,14 +11,6 @@ namespace CarouselViewSample
         ImageSource _selectedImageSource;
         readonly StackLayout _indicators = new StackLayout { Orientation = StackOrientation.Horizontal, HorizontalOptions = LayoutOptions.CenterAndExpand };
 
-        public CarouselIndicators(int currentlySelected)
-        {
-            _currentlySelected = currentlySelected;
-            HorizontalOptions = LayoutOptions.CenterAndExpand;
-            RowDefinitions.Add(new RowDefinition() { Height = GridLength.Auto });
-            Children.Add(_indicators);
-        }
-
         public static readonly BindableProperty PositionProperty = BindableProperty.Create(nameof(Position), typeof(int), typeof(CarouselIndicators), 0, BindingMode.TwoWay,
             propertyChanging: PositionChanging);
 

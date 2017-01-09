@@ -8,14 +8,16 @@
 
   <ContentView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
     <StackLayout>
-      <control:CarouselView ItemsSource="{Binding MyDataSource}" Position="{Binding Position, Mode=TwoWay}">
+      <control:CarouselView ItemsSource="{Binding MyDataSource}" x:Name="Carousel">
         <control:CarouselView.ItemTemplate>
           <DataTemplate>
             <Label Text="{Binding Name}" TextColor="White" />
           </DataTemplate>
         </control:CarouselView.ItemTemplate>
       </control:CarouselView>
-      <local:CarouselIndicators IndicatorHeight="16" IndicatorWidth="16" UnselectedIndicator="unselected_circle.png" SelectedIndicator="selected_circle.png" Position="{Binding Position}" ItemsSource="{Binding MyDataSource}" />
+      <local:CarouselIndicators IndicatorHeight="16" IndicatorWidth="16" UnselectedIndicator="unselected_circle.png" 
+                                SelectedIndicator="selected_circle.png" Position="{Binding Position, Source={x:Reference Carousel}}" 
+                                ItemsSource="{Binding MyDataSource}" />
     </StackLayout>
     
   </ContentView>
